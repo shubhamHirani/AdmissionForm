@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>B.COM Sem 1 Admission Form </title>
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<link rel="icon" href="images/logo.png" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link href="css/black.css" rel="stylesheet" />
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!--================== Date Picker ====================-->
+	<link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$(".datepicker").datepicker({
+				dateFormat: "dd-mm-yy",
+				yearRange: '-30:+0',
+				changeMonth: true,
+				changeYear: true,
+			});
+		});
+	</script>
+	<!--============================================================-->
+</head>
+
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h2>B.COM Sem 1 <small>Admission Form</small></h2>
+		</div>
+		<div class="panel panel-info">
+			<div class="panel-body">
+				<form id="sem1_admission" method="post" action="sem1_admission_submit.php"
+					enctype="multipart/form-data">
+					<table class="table table-striped">
+						<tr>
+							<td colspan="4" class="bg-info">
+								<b>Basic Details</b> &nbsp; (પૂરું નામ 12<sup>th</sup> ની માર્કશીટ પ્રમાણે કેપીટલ અક્ષર
+								મા લખવું.)
+							</td>
+						</tr>
+						<tr>
+							<th>Surname : <em>*</em></th>
+							<td colspan="3"><input type="text" name="surname" class="required form-control" id="text1"
+									onkeyup="displayText()"></td>
+						</tr>
+						<tr>
+							<th>Student's First Name : <em>*</em></th>
+							<td colspan="3"><input type="text" name="first_name" class="required form-control"
+									id="text2" onkeyup="displayText()"></td>
+						</tr>
+						<tr>
+							<th style="width:20%">Father's Name : <em>*</em></th>
+							<td style="width:30%"><input type="text" name="father_name" class="required form-control"
+									id="text3" onkeyup="displayText()"></td>
+							<th style="width:20%">Mother's Name : <em>*</em></th>
+							<td><input type="text" name="mother_name" class="required form-control"></td>
+						</tr>
+						<tr>
+							<th>Full Name :</th>
+							<td colspan="3"><input type="text" id="text4" class=" form-control" disabled></td>
+						</tr>
+						<tr>
+							<th>Sex : <em>*</em></th>
+							<td>
+								<select name="sex" class="required form-control">
+									<option value="">----- Select -----</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+									<option value="Transgender">Transgender</option>
+								</select>
+							</td>
+							<th>Marital Status : <em>*</em></th>
+							<td>
+								<select name="marital_status" class="required form-control">
+									<option value="">----- Select -----</option>
+									<option value="Single">Single</option>
+									<option value="Married">Married</option>
+									<option value="Divorced">Divorced</option>
+									<option value="Widowed">Widowed</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Father's Full Name : <em>*</em></th>
+							<td><input type="text" name="father_full_name" class="required form-control"></td>
+							<th>Catagory : <em>*</em></th>
+							<td>
+								<select name="catagory" class="required form-control">
+									<option value="General">General</option>
+									<option value="SC">SC</option>
+									<option value="ST">ST</option>
+									<option value="OBC">OBC</option>
+									<option value="Other">Other</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Father's Mobile : <em>*</em></th>
+							<td><input type="text" name="father_mobile" class="number required form-control"
+									maxlength="10" minlength="10"></td>
+							<th>Subcast : <em>*</em></th>
+							<td><input type="text" name="subcast" class="required form-control"></td>
+						</tr>
+						<tr>
+							<th>Father's Occupation : <em>*</em></th>
+							<td><input type="text" name="father_occupation" class="required form-control"></td>
+							<th>Birth Place : <em>*</em></th>
+							<td><input type="text" name="birth_place" class="required form-control"></td>
+						</tr>
+						<tr>
+							<th>Yearly Income : <em>*</em></th>
+							<td><input type="text" name="yearly_income" class="number required form-control"
+									maxlength="8"></td>
+							<th>Birthdate : <em>*</em></th>
+							<td><input type="text" name="birthdate" id="datepicker"
+									class="required form-control datepicker"></td>
+						</tr>
+						<tr>
+							<th>Handicap : <em>*</em></th>
+							<td>
+								<select name="handicap" class="required form-control">
+									<option value="No">No</option>
+									<option value="Yes">Yes</option>
+								</select>
+							</td>
+							<th colspan="2"></th>
+						</tr>
+						<tr>
+							<td colspan="4" class="bg-info"><b>Contact Details</b></td>
+						</tr>
+						<tr>
+							<th>Address Line 1 : <em>*</em></th>
+							<td><textarea name="address1" rows="3" cols="25" class="required form-control"></textarea>
+							</td>
+							<th>Address Line 2 : <em>*</em></th>
+							<td><textarea name="address2" rows="3" cols="25" class="required form-control"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>City : <em>*</em></th>
+							<td><input type="text" name="city" class="required form-control"></td>
+							<th>Ta. : <em>*</em></th>
+							<td><input type="text" name="taluka" class="required form-control"></td>
+						</tr>
+						<tr>
+							<th>Pincode : <em>*</em></th>
+							<td><input type="text" name="pincode" maxlength="6" minlength="6"
+									class="number form-control required"></td>
+							<th>Dist. : <em>*</em></th>
+							<td><input type="text" name="dist" class="required form-control"></td>
+						</tr>
+						<tr>
+							<th>Mobile No. : <em>*</em></th>
+							<td>
+								<input type="text" name="mobile" id="mobile" class="number required form-control"
+									maxlength="10"> <span id="mobile_status"></span>
+							</td>
+							<th>Phone No. : </th>
+							<td><input type="text" name="phone" class="number form-control" maxlength="10"></td>
+						</tr>
+						<tr>
+							<th>Student's Email : <em>*</em></th>
+							<td><input type="email" name="email" class="email required form-control"></td>
+							<th>Adhar Card No. : <em>*</em></th>
+							<td><input type="text" name="adhar_no" minlength="12" maxlength="12"
+									class="number required form-control"></td>
+						</tr>
+						<tr>
+							<td colspan="4" class="bg-info"><b>Educational Details</b></td>
+						</tr>
+						<tr>
+							<th>Previous School Name : <em>*</em></th>
+							<td><input type="text" name="last_school_name" class="required form-control"></td>
+							<th>Last School Joining Date <em>*</em></th>
+							<td><input type="text" name="last_school_joining_date"
+									class="required form-control datepicker" readonly></td>
+						</tr>
+						<tr>
+							<th>Last School Leaving Date <em>*</em></th>
+							<td><input type="text" name="last_school_leaving_date"
+									class="required form-control datepicker" readonly></td>
+							<th>Hsc Exam Center <em>*</em></th>
+							<td><input type="text" name="hsc_exam_center" class="required form-control"></td>
+						</tr>
+						<tr>
+							<!-- <th>Last School Leaving Date <em>*</em></th>
+							<td><input type="text" name="last_school_leaving_date" id="datepicker" class="required form-control"></td> -->
+							<th>Hsc Exam Board <em>*</em></th>
+							<td><select name="hsc_exam_Board" class="required form-control">
+									<option value="">---Select---</option>
+									<option value="GHSEB">GHSEB</option>
+									<option value="CBSE">CBSE</option>
+									<option value="OTHER">OTHER</option>
+								</select></td>
+							<th>Hsc Exam Center Code <em>*</em></th>
+							<td><input type="text" name="hsc_exam_center_code" class="required form-control"></td>
+						</tr>
+						<tr>
+							<th>Last Exam No. : <em>*</em></th>
+							<td><input type="text" name="last_exam_no" class="required form-control"></td>
+							<th>No. of Trial : <em>*</em></th>
+							<td>
+								<select class="required form-control" name="trial">
+									<option value="">---- SELECT ----</option>
+									<option value='1'>1</option>
+									<option value='2'>2</option>
+									<option value='3'>3</option>
+									<option value='4'>4</option>
+									<option value='5'>5</option>
+									<option value='6'>6</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Pass Year : <em>*</em></th>
+							<td>
+								<select class="required form-control" name="pass_year">
+									<option value="">---- SELECT ----</option>
+									<option value='2022'>2022</option>
+									<option value='2021'>2021</option>
+									<option value='2020'>2020</option>
+									<option value='2019'>2019</option>
+									<option value='2018'>2018</option>
+									<option value='2017'>2017</option>
+									<option value='2016'>2016</option>
+									<option value='2015'>2015</option>
+									<option value='2014'>2014</option>
+									<option value='2013'>2013</option>
+									<option value='2012'>2012</option>
+								</select>
+							</td>
+							<th>Pass Month : <em>*</em></th>
+							<td>
+								<select name="pass_month" class="required form-control">
+									<option value="">---- SELECT ----</option>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="April">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="August">August</option>
+									<option value="September">September</option>
+									<option value="October">October</option>
+									<option value="November">November</option>
+									<option value="December">December</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Total Marks : <em>*</em></th>
+							<td><input type="text" name="total_marks" id="total_marks" onchange="validatemarks()"
+									class="number required form-control" maxlength="3"></td>
+							<th>Obtained Marks : <em>*</em></th>
+							<td><input type="text" name="obtained_marks" id="obtained_marks" onchange="validatemarks()"
+									class="number required form-control" maxlength="3"></td>
+						</tr>
+						<tr>
+							<th>Class : <em>*</em></th>
+							<td><input type="text" name="class" value="B.COM" readonly class=" form-control"></td>
+							<th>Semester : <em>*</em></th>
+							<td><input type="text" name="semester" id="semester" value="1" readonly
+									class=" form-control"></td>
+						</tr>
+						<tr>
+							<th>Admission Year : <em>*</em></th>
+							<td><input type="text" name="admit_year" value="2021-2022" class="required form-control"
+									readonly></td>
+							<th>Select Subject</th>
+							<td><select name="se" class="required form-control">
+									<option>---Select---</option>
+									<option value="ADV.ACC. & AUDITING">ADV.ACC. & AUDITING</option>
+									<option value="STATISTICS">STATISTICS</option>
+									<option value="TIME MANAGEMENT">TIME MANAGEMENT</option>
+									<option value="PERSONALITY DEVEPMENT">PERSONALITY DEVEPMENT</option>
+									<option value="NRM">NRM</option>
+									<option value="COMPUTER SKILL-2">COMPUTER SKILL-2</option>
+									<option value="DISASTER MANAGEMANT">DISASTER MANAGEMANT</option>
+									<option value="PRESENTATOIN SKILL">PRESENTATOIN SKILL</option>
+									<option value="b.com sem 2">b.com sem 2</option>
+									<option value="LEADERSHIP DEVLOPMENT">LEADERSHIP DEVLOPMENT</option>
+									<option value=" Accountancy"> Accountancy</option>
+									<option value="IFS">IFS</option>
+									<option value="HUMAN RESOURCES">HUMAN RESOURCES</option>
+								</select></td>
+						</tr>
+					</table>
+					<table class="table table-striped">
+						<tr>
+							<th style="width:20%">Bank Name :</th>
+							<td style="width:30%"><input type="text" name="bank_name" value="" class=" form-control">
+							</td>
+							<th style="width:20%">Bank A/C No. :</th>
+							<td><input type="text" name="bank_ac_no" class="number  form-control" maxlength="15"></td>
+						</tr>
+						<tr>
+							<th>Photo Upload : <em>*</em></th>
+							<td>
+								Select Image : <br />
+								<input type="file" name="image" class="required form-control"><br />
+							</td>
+						</tr>
+						<tr>
+							<th colspan="4" style="text-align:center">
+								<input type="submit" name="Submit" id="Submit" value="Submit" class="btn btn-success">
+							</th>
+						</tr>
+					</table>
+				</form>
+			</div><!-- end panel-body -->
+			<div class="panel-footer">
+				<small><em>* Please upload only jpg or png Photo.</em></small><br>
+				<small><em>* (*) Marks indicate compulsory field.</em></small>
+			</div>
+		</div><!-- end panel -->
+	</div>
+	<script type="text/javascript" src="../../../assets/js/jquery.validate.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#sem1_admission").validate();
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('input[type=text]').on('keyup', function () {
+				$('input[type=text]').val(function () {
+					return this.value.toUpperCase();
+				});
+			});
+			$('textarea').on('keyup', function () {
+				$('textarea').val(function () {
+					return this.value.toUpperCase();
+				});
+			});
+		});
+	</script>
+	<script>
+		function displayText() {
+			var text = document.getElementById('text1').value;
+			text += " ";
+			text += document.getElementById('text2').value;
+			text += " ";
+			text += document.getElementById('text3').value;
+			document.getElementById('text4').value = text;
+		}
+	</script>
+	<script type="text/javascript">
+		function validatemarks() {
+			var total_marks = document.getElementById("total_marks").value;
+			$("#obtained_marks").attr('max', total_marks);
+		}
+	</script>
+	<script>
+		$(document).ready(function (e) {
+			mobile_validate();
+			$("#mobile").on('change keyup focusout', function () {
+				mobile_validate();
+			});
+		});
+		function mobile_validate() {
+			//	alert('ECHO');
+			var mobile = $("#mobile").val();
+			var msgbox = $("#mobile_status");
+			//alert(mobile);
+			if (mobile.length > 9) {
+				$("#status").html('<img src="loader.gif" align="absmiddle">&nbsp;Checking mobile no...');
+				$.ajax({
+					type: "POST",
+					url: "ajax_mobile_validation.php",
+					data: { "mobile": mobile, "admission_table": "admission_bcom_sem1" },
+					success: function (msg) {
+						if (msg == 'OK') {
+							$('input[type="submit"]').removeAttr('disabled');
+							$("#mobile").removeClass("red");
+							$("#mobile").addClass("green");
+							msgbox.html('<img src="yes.png" align="absmiddle"> <font color="#22b14c"> Available </font>  ');
+						}
+						else {
+							$('input[type="submit"]').attr('disabled', 'disabled');
+							$("#mobile").removeClass("green");
+							$("#mobile").addClass("red");
+							msgbox.html("<br>" + msg);
+						}
+					}
+				});
+			}
+			else {
+				$('input[type="submit"]').attr('disabled', 'disabled');
+				$("#mobile").addClass("red");
+				$("#mobile_status").html('<br><font color="#cc0000">Enter valid 10 digit mobile no.</font>');
+			}
+		}
+	</script>
+</body>
+
+</html>
